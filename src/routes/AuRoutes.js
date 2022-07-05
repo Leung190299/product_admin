@@ -1,4 +1,4 @@
-import Main from '../layouts/Main';
+import Main from '../layouts/main/Main';
 import Home from '../page/home/Home';
 import Product from '../page/product';
 const auRoutes = {

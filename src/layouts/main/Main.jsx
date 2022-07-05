@@ -1,19 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import Header from './layout/Header';
-import Siderbar from './layout/Siderbar';
+import Header from '../components/header/Header';
+import Siderbar from '../components/siderbar/Siderbar';
+import './main.scss';
 
 const Main = () => {
 	return (
-		<div className='flex h-screen'>
+		<div className='main'>
 			<Siderbar />
-			<div className='w-full'>
+			<div className='main_content'>
 				<Header />
 				<div className='main_body'>
 					<Outlet />
 				</div>
-
 			</div>
-
 		</div>
 	);
 };

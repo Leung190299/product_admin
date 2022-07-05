@@ -1,0 +1,70 @@
+@use '../../../sass/'as *;
+
+.siderbar {
+	width: 250px;
+	height: 100vh;
+	background: $bg-light;
+	box-shadow: 0px 1px 5px 0px rgba(31, 31, 31, 0.507);
+
+	&_top {
+		min-height: 100px;
+		@include flex(center, center);
+		border-bottom: 1px solid $color-line;
+	}
+
+	&_logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: $color-heading;
+	}
+
+	&_content {
+		padding-top: 25px;
+		padding-left: 10px;
+		border-bottom: 1px solid $color-line;
+	}
+
+	&_lable {
+		font-size: .8rem;
+		text-transform: uppercase;
+		color: $color-line;
+	}
+
+	&_link {
+		@include flex(center);
+		text-decoration: none;
+		margin: 10px 5px;
+		background: #fff;
+		padding: 8px 5px;
+		transition: all .5s ease;
+		border-radius: 10px;
+
+		.icon {
+			color: $color-heading;
+			margin: 0 15px;
+
+		}
+
+		&:hover {
+			box-shadow: 0px 5px 5px $color-shadow;
+			background: $color-active;
+
+			.icon,
+			.siderbar_link_title {
+				color: #fff;
+			}
+		}
+
+		&_title {
+			font-weight: bold;
+			font-size: .8rem;
+			color: $color-line;
+		}
+	}
+
+
+	&_bottom {
+		padding-top: 25px;
+		margin-left: 10px;
+	}
+}
