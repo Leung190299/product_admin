@@ -21,3 +21,8 @@ body{
 	color: $color-text;
 	background: $bg-light;
 }
+button{
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}

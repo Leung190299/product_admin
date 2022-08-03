@@ -1,4 +1,13 @@
 @use '../../sass/' as *;
 .main{
-	@include flex()
+	@include flex();
+	&_content{
+		flex:1;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	&_body{
+		flex: 1;
+	}
 }

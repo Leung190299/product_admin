@@ -9,7 +9,7 @@ const menuOption = [
     label: 'Dashboard'
   },
   {
-    to: '/',
+    to: '/Media',
     icon: <Image className='icon' />,
     label: 'Ảnh'
   },
@@ -44,7 +44,7 @@ const Siderbar = () => {
       <div className="siderbar_top">
         <div className="siderbar_logo">
           <img src="" alt="" />
-          Leung
+          LU
         </div>
       </div>
       <div className="siderbar_content">

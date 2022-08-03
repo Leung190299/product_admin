@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import mediaSlice from "./reducers/mediaSlice";
 
-export const store = configureStore( {
-	reducer:{}
-})
+ const store = configureStore( {
+	reducer: {
+		media:mediaSlice
+	}
+ } );
+export default store;

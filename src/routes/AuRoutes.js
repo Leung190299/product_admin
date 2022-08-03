@@ -1,6 +1,7 @@
 import Main from '../layouts/main/Main';
 import Home from '../page/home/Home';
-import Product from '../page/product';
+import Media from '../page/media/Media';
+import Products from '../page/product/Products';
 const auRoutes = {
 	path: '/',
 	element: < Main />,
@@ -11,7 +12,11 @@ const auRoutes = {
 		},
 		{
 			path: 'product',
-			element: <Product />
+			element: <Products />
+		},
+		{
+			path: 'media',
+			element: <Media />
 		}
 	]
 };

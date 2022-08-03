@@ -1,0 +1,207 @@
+@use '../../sass/'as *;
+
+.boxMedia {
+	padding: 50px 25px;
+	position: relative;
+	height: 100%;
+
+	.btn {
+		display: flex;
+		background: $color-active;
+		border: none;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		padding: 10px 20px;
+		border-radius: 8px;
+		cursor: pointer;
+
+		&:hover {
+			background: $color-heading;
+		}
+	}
+}
+
+.boxContent {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cradMedia {
+	width: 250px;
+	height: 250px;
+	background: #fff;
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 10px #333;
+	margin: 15px 7px;
+	overflow: hidden;
+	cursor: pointer;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all .1s linear;
+	}
+	&:hover{
+		img{
+			transform: scale(1.05);
+		}
+	}
+}
+
+.poupMedia {
+	width: 90%;
+	height: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 1px 1px 5px #333;
+	overflow: hidden;
+
+	&_header {
+		height: 50px;
+		background: $color-active;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 10px;
+
+		button {
+			border: none;
+			background: transparent;
+			cursor: pointer;
+
+			&:hover {
+				.icon {
+					color: #333;
+				}
+			}
+		}
+
+		.icon {
+			color: #fff;
+			font-size: 35px;
+		}
+	}
+
+	&_main {
+		width: 100%;
+		padding: 15px;
+
+		.dropzone {
+			cursor: pointer;
+			height: 200px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border: 3px dotted $color-line;
+
+			span {
+				display: flex;
+				background: $color-line;
+				border: none;
+				align-items: center;
+				justify-content: center;
+				color: #fff;
+				padding: 10px 20px;
+				border-radius: 8px;
+				margin: 15px 0;
+
+				&:hover {
+					background: $color-heading;
+				}
+			}
+		}
+	}
+}
+
+.media {
+	&_list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&_card {
+		width: 250px;
+		height: 250px;
+		background: #fff;
+		padding: 10px;
+		border-radius: 8px;
+		box-shadow: 1px 1px 10px #333;
+		margin: 15px 7px;
+		position: relative;
+
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.mediaMain{
+	display: flex;
+	width: 100%;
+	padding: 15px;
+}
+.mediaLeft{
+	flex: 1;
+	img{
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+.mediaRigth{
+	width: 30%;
+	padding-left: 25px;
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li{
+		margin: 10px 0;
+		line-height: 1.5;
+		display: flex;
+		width: 100%;
+		align-items: flex-end;
+	}
+	.lable{
+		display: block;
+		width: 20%;
+		font-weight: 700;
+		text-transform:capitalize;
+
+	}
+	.valuse{
+		display: block;
+		flex: 1;
+		font-style: italic;
+
+	}
+}
+.mediaButton{
+	margin: 15px 0;
+	width: 100%;
+
+}
+.btnDelete{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: red;
+	color: #fff;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 8px;
+	margin-left: auto;
+}
