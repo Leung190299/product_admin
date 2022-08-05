@@ -1,0 +1,40 @@
+@use '../../sass/'as *;
+.category {
+	&_main {
+		display: flex;
+		width: 100%;
+		height: 90%;
+		padding: 15px;
+		position: relative;
+	}
+	&_input{
+		width: 35%;
+		padding-right: 15px;
+	}
+	&_list{
+		flex: 1;
+		border: 1px $color-heading solid;
+		margin-left:15px ;
+		border-radius: 8px;
+	}
+}
+.box_input{
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+
+}
+.btnSave{
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $color-heading;
+	color: #fff;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 8px;
+	margin-left: auto;
+}

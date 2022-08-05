@@ -13,7 +13,7 @@ const SingleMediaPoup = ( { image } ) => {
 
 			media.delete( image._id ).then( res => {
 				console.log(res);
-				if ( res.row === 1 ) {
+				if ( res ) {
 					 dispatch(getList())
 					 setShow( false );
 				 } else {

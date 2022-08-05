@@ -22,5 +22,8 @@ class Media {
 	delete( id ) {
 		return request.post( this.url + '/delete',{id});
 	}
+	getAllFile() {
+		return request.get( this.url);
+	}
 }
 export default new Media();

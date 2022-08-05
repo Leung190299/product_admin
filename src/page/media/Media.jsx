@@ -7,23 +7,22 @@ import UploadFile from './components/UploadFile';
 import './media.scss';
 const Media = () => {
   const medias = useSelector( state => state.media );
-  console.log( medias );
   const dispatch = useDispatch();
   useEffect( () => {
     dispatch( getList() );
   }, [ dispatch ] );
   const handlePagination = ( number ) => {
-    dispatch( getList(number) );
-  }
+    dispatch( getList( number ) );
+  };
   return (
     <div className="boxMedia">
       <UploadFile />
       <div className='boxContent'>{
         medias.data.map( image => (
-          <SingleMediaPoup key={image._id} image={image} />
-        ))
+          <SingleMediaPoup key={ image._id } image={ image } />
+        ) )
       }</div>
-      <Pagination pages={ medias.pages } callback={handlePagination} page={medias.page}  />
+      <Pagination pages={ medias.pages } callback={ handlePagination } page={ medias.page } />
     </div>
   );
 };

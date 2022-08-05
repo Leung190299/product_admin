@@ -1,28 +1,211 @@
-@use './sass' as *;
+@use './sass'as *;
 
-*{
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-html{
+
+html {
 	font-size: 100%;
 	font-family: 'Roboto', sans-serif;
-	@include tablet{
+
+	@include tablet {
 		font-size: 80%;
 	}
-	@include mobile{
+
+	@include mobile {
 		font-size: 60%;
 	}
 }
-body{
+
+body {
 	font-weight: 400;
 	line-height: 1.5;
 	color: $color-text;
 	background: $bg-light;
 }
-button{
+
+button {
 	border: none;
 	background: transparent;
 	cursor: pointer;
+}
+
+table {
+	width: 100%;
+
+	td,
+	th {
+		color: darken($color-heading, 10%);
+		padding: $padding;
+	}
+
+	td {
+		text-align: center;
+		vertical-align: middle;
+
+		&:last-child {
+			font-size: 0.95em;
+			line-height: 1.4;
+			text-align: left;
+		}
+	}
+
+	th {
+		background-color: lighten($color-heading, 50%);
+		font-weight: 300;
+	}
+
+	tr {
+		&:nth-child(2n) {
+			background-color: white;
+		}
+
+		&:nth-child(2n+1) {
+			background-color: lighten($color-heading, 55%)
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+
+	table,
+	tr,
+	td {
+		display: block;
+	}
+
+	td {
+		&:first-child {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: $imageBig;
+		}
+
+		&:not(:first-child) {
+			clear: both;
+			margin-left: $imageBig;
+			padding: 4px 20px 4px 90px;
+			position: relative;
+			text-align: left;
+
+			&:before {
+				color: lighten($color-heading, 30%);
+				content: '';
+				display: block;
+				left: 0;
+				position: absolute;
+			}
+		}
+
+		&:nth-child(2):before {
+			content: 'Name:';
+		}
+
+		&:nth-child(3):before {
+			content: 'Email:';
+		}
+
+		&:nth-child(4):before {
+			content: 'Phone:';
+		}
+
+		&:nth-child(5):before {
+			content: 'Comments:';
+		}
+	}
+
+	tr {
+		padding: $padding 0;
+		position: relative;
+
+		&:first-child {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.header {
+		background-color: transparent;
+		color: lighten($color-heading, 60%);
+		font-size: 2em;
+		font-weight: 700;
+		padding: 0;
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+	}
+
+	img {
+		border: 3px solid;
+		border-color: lighten($color-heading, 50%);
+		height: $imageBig;
+		margin: 0.5rem 0;
+		width: $imageBig;
+	}
+
+	td {
+		&:first-child {
+			background-color: lighten($color-heading, 45%);
+			border-bottom: 1px solid lighten($color-heading, 30%);
+			border-radius: $borderRadius $borderRadius 0 0;
+			position: relative;
+			top: 0;
+			transform: translateY(0);
+			width: 100%;
+		}
+
+		&:not(:first-child) {
+			margin: 0;
+			padding: 5px 1em;
+			width: 100%;
+
+			&:before {
+				font-size: .8em;
+				padding-top: 0.3em;
+				position: relative;
+			}
+		}
+
+		&:last-child {
+			padding-bottom: 1rem !important;
+		}
+	}
+
+	tr {
+		background-color: white !important;
+		border: 1px solid lighten($color-heading, 20%);
+		border-radius: $borderRadius;
+		box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+		margin: 0.5rem 0;
+		padding: 0;
+	}
+
+
+}
+
+label {
+	display: block;
+	padding: 2px 0;
+	color: darken($color-heading, 10%);
+	font-weight: 400;
+	text-shadow: none;
+	vertical-align: baseline;
+	font-size: 18px;
+}
+
+input[type=text],
+select,
+textarea {
+	box-shadow: 0 0 0 transparent;
+	border-radius: 4px;
+	border: 1px solid #8c8f94;
+	background-color: #fff;
+	color: #2c3338;
+	padding: 0 8px;
+	line-height: 2;
+	min-height: 30px;
+	font-size: 16px;
+
 }

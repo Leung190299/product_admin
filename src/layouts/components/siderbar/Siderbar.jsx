@@ -1,5 +1,5 @@
 import { Category, Dashboard, Image, PostAdd, PrecisionManufacturing, Settings } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './siderbar.scss';
 const menuOption = [
@@ -19,7 +19,7 @@ const menuOption = [
     label: 'Sản Phẩm'
   },
   {
-    to: '/',
+    to: '/category',
     icon: <Category className='icon' />,
     label:'Danh mục'
   },
@@ -50,12 +50,12 @@ const Siderbar = () => {
       <div className="siderbar_content">
         <div className="siderbar_lable">Quản lý</div>
         { menuOption.map( ( menu, index ) => (
-          <Link key={index} to={menu.to} className="siderbar_link">
+          <NavLink key={index} to={menu.to} className="siderbar_link">
             { menu.icon }
             <span className='siderbar_link_title'>
               {menu.label}
             </span>
-          </Link>
+          </NavLink>
         ) ) }
 
 

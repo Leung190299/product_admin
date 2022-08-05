@@ -1,13 +1,113 @@
-@use '../../sass/' as *;
-.main{
+@use '../../sass/'as *;
+
+.main {
 	@include flex();
-	&_content{
-		flex:1;
+
+	&_content {
+		flex: 1;
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
 	}
-	&_body{
+
+	&_body {
 		flex: 1;
 	}
+}
+
+.media {
+	&_list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&_card {
+		height: 200px;
+		width: 200px;
+		background: #fff;
+		padding: 10px;
+		border-radius: 8px;
+		box-shadow: 1px 1px 10px #333;
+		margin: 15px 7px;
+		position: relative;
+		cursor: pointer;
+		&.active{
+			background-color:lighten($color-heading, 30%) ;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+	}
+
+	&_action {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: all .5s;
+
+		&::before {
+			display: block;
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			background: rgba(255, 255, 255, 0.377);
+		}
+
+		button {
+			position: relative;
+			z-index: 1;
+			color: rgb(0, 0, 0);
+			margin: 15px;
+			svg{
+				width: 35px;
+				height: 35px;
+			}
+			&:hover{
+				color: $color-heading;
+			}
+		}
+	}
+}
+
+.imageSelect {
+	&:hover{
+		.media_action{
+			opacity: 1;
+		}
+	}
+
+}
+
+.btn {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $color-heading;
+	color: #fff;
+	padding: 10px 15px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 8px;
+
+}
+
+.heading_1 {
+	font-size: 26px;
+	margin: 15px;
+	color: darken($color-heading, 10%);
 }
