@@ -1,5 +1,5 @@
-import { Category, Dashboard, Image, PostAdd, PrecisionManufacturing, Settings } from '@mui/icons-material';
-import { NavLink } from 'react-router-dom';
+import { Category, Dashboard, Image, Menu, PostAdd, PrecisionManufacturing, Settings } from '@mui/icons-material';
+import SiderbarItemt from './components/SiderbarItemt';
 
 import './siderbar.scss';
 const menuOption = [
@@ -9,6 +9,11 @@ const menuOption = [
     label: 'Dashboard'
   },
   {
+    to: '/menu',
+    icon: <Menu className='icon' />,
+    label: 'Menu'
+  },
+  {
     to: '/Media',
     icon: <Image className='icon' />,
     label: 'Ảnh'
@@ -16,28 +21,39 @@ const menuOption = [
   {
     to: '/product',
     icon: <PrecisionManufacturing className='icon' />,
-    label: 'Sản Phẩm'
+    label: 'Sản Phẩm',
+    children: [
+
+      {
+        to: '/product/create',
+        icon:< PostAdd className='icon' />,
+        label: 'Add/ Thêm',
+      }
+    ]
   },
   {
     to: '/category',
     icon: <Category className='icon' />,
-    label:'Danh mục'
+    label: 'Danh mục'
   },
   {
     to: '/',
     icon: <PostAdd className='icon' />,
-    label:'Bài viết',
+    label: 'Bài viết',
 
   },
   {
     to: '/',
     icon: <Settings className='icon' />,
-    label:'Cài Đặt',
+    label: 'Cài Đặt',
 
   }
 ];
 
+
 const Siderbar = () => {
+
+
 
   return (
     <div className="siderbar">
@@ -49,17 +65,7 @@ const Siderbar = () => {
       </div>
       <div className="siderbar_content">
         <div className="siderbar_lable">Quản lý</div>
-        { menuOption.map( ( menu, index ) => (
-          <NavLink key={index} to={menu.to} className="siderbar_link">
-            { menu.icon }
-            <span className='siderbar_link_title'>
-              {menu.label}
-            </span>
-          </NavLink>
-        ) ) }
-
-
-
+        { menuOption.map( ( menu, index ) => ( <SiderbarItemt item={menu} />) )}
       </div>
       <div className="siderbar_bottom">
         bottom

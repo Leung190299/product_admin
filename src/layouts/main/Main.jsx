@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { getListCategory } from '../../reducers/categorySlice';
 import { getList } from '../../reducers/mediaSlice';
 import Header from '../components/header/Header';
 import Siderbar from '../components/siderbar/Siderbar';
@@ -10,6 +11,8 @@ const Main = () => {
 	const dispatch = useDispatch();
 	useEffect( () => {
 		dispatch( getList() );
+		dispatch( getListCategory() );
+
 	}, [ dispatch] );
 
 	return (

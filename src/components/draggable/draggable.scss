@@ -1,0 +1,34 @@
+ul,li {
+	list-style: none;
+}
+
+.draggable {
+	&_list{
+		border-top: 2px solid transparent;
+		& > .draggable_list{
+			margin-left: 25px;
+			&.dragover{
+				border-top-color:  red ;
+			}
+		}
+
+	}
+	&_item {
+		width: max-content;
+		border-top: 2px solid transparent;
+		position: relative;
+		& * {
+			pointer-events: none;
+		}
+		& > .draggable_list{
+			margin-left: 25px;
+		}
+
+		&.dragstart {
+			opacity: 0.5;
+		}
+		&.dragover{
+			border-top-color:  green ;
+		}
+	}
+}

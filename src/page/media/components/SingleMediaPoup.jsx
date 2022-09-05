@@ -10,9 +10,7 @@ const SingleMediaPoup = ( { image } ) => {
 	const dispatch = useDispatch()
 	const handleDelete = () => {
 		if ( window.confirm( 'Bạn có muốn xóa ảnh hiện tại ?' ) ) {
-
 			media.delete( image._id ).then( res => {
-				console.log(res);
 				if ( res ) {
 					 dispatch(getList())
 					 setShow( false );

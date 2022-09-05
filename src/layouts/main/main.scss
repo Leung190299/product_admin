@@ -12,13 +12,16 @@
 
 	&_body {
 		flex: 1;
+		overflow: auto;
+		padding: 15px;
 	}
 }
 
 .media {
 	&_list {
-		display: flex;
-		flex-wrap: wrap;
+
+		height: 70vh;
+		overflow: auto;
 	}
 
 	&_card {
@@ -93,16 +96,17 @@
 
 .btn {
 	margin-top: 15px;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	background: $color-heading;
 	color: #fff;
 	padding: 10px 15px;
-	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
 	border-radius: 8px;
+	text-decoration: none;
+
 
 }
 
@@ -110,4 +114,8 @@
 	font-size: 26px;
 	margin: 15px;
 	color: darken($color-heading, 10%);
+}
+.box_image-list{
+	display: flex;
+	flex-wrap: wrap;
 }

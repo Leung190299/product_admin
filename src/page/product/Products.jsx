@@ -1,10 +1,6 @@
-const Products = () => {
+import { Outlet } from "react-router-dom";
+import './product.scss';
 
-  return (
-    <div className="product">
-      asdasdas
-    </div>
-  );
-};
+const Products = () => <Outlet/>;
 
 export default Products;

@@ -42,99 +42,88 @@
 		color: $color-line;
 	}
 
-	&_link {
-		@include flex(center);
-		text-decoration: none;
-		margin: 30px 0;
-		background: #fff;
-		padding: 15px 5px;
-
-		border-radius: 50px 0 0 50px;
-		position: relative;
-		z-index: 10;
-		transition: all .5s;
-
-		// &::after {
-		// 	position: absolute;
-		// 	right: 0;
-		// 	top: -20px;
-		// 	content: "";
-		// 	display: block;
-		// 	height: 20px;
-		// 	width: 20px;
-		// 	background: transparent;
-		// 	box-shadow: 7.5px 7.5px 0px 7.5px #fff;
-		// 	border-radius: 0 0 20px 0;
-
-
-		// }
-
-		// &::before {
-		// 	position: absolute;
-		// 	right: 0;
-		// 	bottom: -20px;
-		// 	content: "";
-		// 	display: block;
-		// 	height: 20px;
-		// 	width: 20px;
-		// 	background: transparent;
-		// 	box-shadow: 7.5px -7.5px 0px 7.5px #fff;
-		// 	border-radius: 0 20px 0px 0;
-
-
-		// }
-
-		.icon {
-			color: $color-heading;
-			margin: 0 15px;
-
-		}
-
-		&:hover {
-			box-shadow: 0px 5px 5px $color-shadow;
-			background: $color-active;
-
-			&::after {
-				box-shadow: 7.5px 7.5px 0px 7.5px $color-active;
-			}
-
-			&::before {
-				box-shadow: 7.5px -7.5px 0px 7.5px $color-active;
-			}
-
-			.icon,
-			.siderbar_link_title {
-				color: #fff;
-			}
-		}
-		&.active{
-			box-shadow: 0px 5px 5px $color-shadow;
-			background: $color-active;
-
-			&::after {
-				box-shadow: 7.5px 7.5px 0px 7.5px $color-active;
-			}
-
-			&::before {
-				box-shadow: 7.5px -7.5px 0px 7.5px $color-active;
-			}
-
-			.icon,
-			.siderbar_link_title {
-				color: #fff;
-			}
-		}
-
-		&_title {
-			font-weight: bold;
-			font-size: .8rem;
-			color: $color-line;
-		}
-	}
-
-
 	&_bottom {
 		padding-top: 25px;
 		margin-left: 10px;
+	}
+
+	&_item {
+		padding: 8px;
+		margin: 10px;
+		display: block;
+		cursor: pointer;
+		color: $color-active;
+		font-weight: 400;
+		text-decoration: none;
+		border-radius: 8px;
+
+		&:hover {
+			background-color: #f287052a;
+			color: darken($color-active, 20%);
+		}
+
+		&.active {
+
+			background-color: #f287052a;
+			color: darken($color-active, 20%);
+
+			>.siderbar_title button {
+				transform: rotate(90deg);
+			}
+
+			>.siderbar_sub {
+				height: auto;
+			}
+		}
+
+	}
+
+	&_title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+
+		&_lable {
+			display: flex;
+			align-items: center;
+			color: $color-active;
+			text-decoration: none;
+
+			width: 100%;
+			&.active {
+				padding: 8px;
+				border-radius: 8px;
+				background-color: #f287052a;
+				color: darken($color-active, 20%);
+
+			}
+			svg {
+				margin-right: 10px;
+			}
+		}
+
+		span {
+
+			display: flex;
+			align-items: center;
+
+			svg {
+				margin-right: 10px;
+
+			}
+		}
+
+		button {
+			cursor: pointer;
+			transition: all .5s;
+		}
+	}
+
+	&_sub {
+		transition: height .5s;
+		height: 0;
+		overflow: hidden;
+
 	}
 }

@@ -6,7 +6,6 @@ const initialState = {
 	data: [],
 	page: 1,
 	pages: 1,
-	allFile:[],
 	errorMessage: ''
 };
 
@@ -14,11 +13,7 @@ export const getList = createAsyncThunk( 'media/get', async ( thunkAPI ) => {
 	const data = await media.getAll(thunkAPI);
 	return data
 } );
-export const getAll = createAsyncThunk( 'media/getAll', async ( thunkAPI ) => {
-	const data = await media.getAllFile();
-	return data
-} );
-export const mediaSlice = createSlice( {
+ const mediaSlice = createSlice( {
 	name: 'media',
 	initialState,
 	extraReducers: ( builder ) => {
@@ -34,9 +29,7 @@ export const mediaSlice = createSlice( {
 			state.isLoading = false;
 			state.errorMessage = action.payload.message;
 		} );
-		builder.addCase( getAll.fulfilled, ( state, action ) => {
-			state.allFile = action.payload;
-		})
+
 	}
 } );
 export default mediaSlice.reducer;

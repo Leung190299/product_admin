@@ -9,11 +9,11 @@ import { getList } from '../../reducers/mediaSlice';
 import Pagination from '../pagination/Pagination';
 import Image from './Image';
 
-
-const SingleSelectImage = ( { image, setImage } ) => {
+const MultipleSelectImage = ( { images = [], setImages } ) => {
 	const [ show, setShow ] = useState( false );
 	const medias = useSelector( state => state.media );
 	const [ files, setFile ] = useState( [] );
+	const [ replace, setReplace ] = useState( {} );
 
 	const onDrop = useCallback( ( acceptedFiles ) => {
 		const mapFile = acceptedFiles.map( file => ( { file, errore: [] } ) );
@@ -24,17 +24,43 @@ const SingleSelectImage = ( { image, setImage } ) => {
 	const handlePagination = ( number ) => {
 		dispatch( getList( number ) );
 	};
+
+	const removeImage = (file) => {
+		setImages(imgs=>imgs.filter(img=>img!==file))
+	}
+	const chooseImage = ( file ) => {
+		setReplace( file );
+		setShow( true );
+	}
+	const replaceImage = ( file ) => {
+		if ( Object.values(replace).length !== 0 ) {
+			setImages( imgs => {
+				const index = imgs.indexOf( replace );
+				imgs[index]=file
+
+				return imgs;
+			} )
+			setReplace( {} );
+		} else {
+			setImages( [ ...images, file ] )
+		}
+	}
 	return (
 		<div className='box_image'>
-			{ image&&!image._id ? ( <button type='button' onClick={ () => setShow( true ) } className='btn'>Chọn file</button> ) : (
-				<div className="media_card  imageSelect" >
-					<Image nameImage={ image&&image.filename } />
-					<div className="media_action">
-						<button type='button' onClick={ () => setShow( true ) }><Edit /></button>
-						<button type='button' onClick={ () => setImage( {} ) }><Close /></button>
+			<div className="box_image-list">
+				{ images && images.map( image =>
+				(
+
+					<div className="media_card  imageSelect" >
+						<Image nameImage={ image && image.filename } />
+						<div className="media_action">
+							<button type='button' onClick={ () => chooseImage( image ) }><Edit /></button>
+							<button type='button' onClick={ () => removeImage(image) }><Close /></button>
+						</div>
 					</div>
-				</div>
-			) }
+				) ) }
+			</div>
+			<button type='button' onClick={ () => setShow( true ) } className='btn'>Chọn file</button>
 			{
 				show ? ( <div className="poupMedia">
 					<header className='poupMedia_header'>
@@ -52,17 +78,25 @@ const SingleSelectImage = ( { image, setImage } ) => {
 							<TabPanel>
 								<div className="media_list">
 									<div className='boxContent'>{
-										medias.data.map( file => image && file._id === image._id ?
-											(
-												<div className="media_card active">
-													<Image nameImage={ file.filename } />
+										medias.data.map( file => {
 
-												</div>
-											) : (
-												<div className="media_card " onClick={ () => setImage( file ) }>
-													<Image nameImage={ file.filename } />
-												</div>
-											)
+											if ( images.indexOf( file ) >= 0 ) {
+												return (
+													<div className="media_card active" key={file._id}>
+														<Image nameImage={ file.filename } />
+
+													</div>
+												);
+											} else {
+												return (
+													<div className="media_card " key={file._id} onClick={ () => replaceImage(file) }>
+														<Image nameImage={ file.filename } />
+													</div>
+												);
+											}
+										}
+
+
 
 										)
 									}</div>
@@ -94,4 +128,4 @@ const SingleSelectImage = ( { image, setImage } ) => {
 	);
 };
 
-export default SingleSelectImage;
+export default MultipleSelectImage;
